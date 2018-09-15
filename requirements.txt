@@ -1,2 +1,5 @@
 django-crispy-forms==1.7.2
+<<<<<<< HEAD
 django2
+=======
+>>>>>>> aa5f84fb4013db6b2d54cc439b64bbcad170ce1b
