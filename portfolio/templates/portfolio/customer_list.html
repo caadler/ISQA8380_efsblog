@@ -55,14 +55,13 @@
                     <td>{{ customer.zipcode }}</td>
                     <td>{{ customer.email }}</td>
                     <td>{{ customer.cell_phone }}</td>
-                    <td><a href="{% url 'portfolio:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a>
+                    <td><a href="{% url 'portfolio:customer_edit' pk=customer.pk %}" class="btn btn-warning">Edit</a></td>
                     <td><a href="{% url 'portfolio:customer_delete' pk=customer.pk %}"
                            onclick="return confirm('Are you sure you want to delete?')"
                            class="btn btn-danger">Delete</a>
                     </td>
 
-                    <td><a href=""
-                           class="btn btn-primary">Portfolio</a>
+                    <td><a href="{% url 'portfolio:portfolio' pk=customer.pk %}" class="btn btn-primary">Portfolio</a></td>
 
                 </tr>
             {% endfor %}

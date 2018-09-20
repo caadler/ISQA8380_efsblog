@@ -31,14 +31,17 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'portfolio',
+    'crispy_forms',
+    'rest_framework',
+    'mathfilters',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'portfolio',
-    'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,13 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'efs.urls'
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ISQA8380@gmail.com'
+EMAIL_HOST_PASSWORD = 'HelloWorld'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
 
 TEMPLATES = [
     {
