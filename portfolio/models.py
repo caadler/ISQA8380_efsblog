@@ -77,7 +77,7 @@ class Stock(models.Model):
         url = main_api + symbol_f + api_key
         json_data = requests.get(url).json()
         mkt_dt = (json_data["Meta Data"]["3. Last Refreshed"])
-        open_price = float(json_data["Weekly Time Series"][mkt_dt]["1. open"])
+        open_price = float(json_data["Time Series (1min)"][mkt_dt]["1. open"])
         share_value = open_price
         return share_value
 
@@ -88,6 +88,6 @@ class Stock(models.Model):
         url = main_api + symbol_f + api_key
         json_data = requests.get(url).json()
         mkt_dt = (json_data["Meta Data"]["3. Last Refreshed"])
-        open_price = float(json_data["Weekly Time Series"][mkt_dt]["1. open"])
+        open_price = float(json_data["Time Series (1min)"][mkt_dt]["1. open"])
         share_value = open_price
         return float(share_value) * float(self.shares)
