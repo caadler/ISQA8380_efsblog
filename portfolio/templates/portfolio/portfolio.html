@@ -47,9 +47,15 @@
             <tbody>
 
             <tr>
-                <td>${{ sum_of_initial_stock_value | add:sum_acquired_value.acquired_value__sum | floatformat:"2" }}</td>
-                <td>${{ sum_current_stocks_value | add:sum_recent_value.recent_value__sum | floatformat:"2" }}</td>
-                <td>${{ sum_current_stocks_value | add:sum_recent_value.recent_value__sum | sub:sum_of_initial_stock_value | sub:sum_acquired_value.acquired_value__sum | floatformat:"2" }}</td>
+                {% if sum_acquired_value.acquired_value__sum > 0 %}
+                    <td>${{ sum_of_initial_stock_value | add:sum_acquired_value.acquired_value__sum | floatformat:"2" }}</td>
+                    <td>${{ sum_current_stocks_value | add:sum_recent_value.recent_value__sum | floatformat:"2" }}</td>
+                    <td>${{ sum_current_stocks_value | add:sum_recent_value.recent_value__sum | sub:sum_of_initial_stock_value | sub:sum_acquired_value.acquired_value__sum | floatformat:"2" }}</td>
+                {% else %}
+                    <td>${{ sum_of_initial_stock_value | floatformat:"2" }}</td>
+                    <td>${{ sum_current_stocks_value | floatformat:"2" }}</td>
+                    <td>${{ sum_current_stocks_value | sub:sum_of_initial_stock_value | floatformat:"2" }}</td>
+                {% endif %}
             </tr>
 
         </tbody>
