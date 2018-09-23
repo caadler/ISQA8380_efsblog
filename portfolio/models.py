@@ -72,8 +72,8 @@ class Stock(models.Model):
 
     def current_stock_price(self):
         symbol_f = str(self.symbol)
-        main_api = 'https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol='
-        api_key = '&apikey=JPMPSPT7R9L3LK45'
+        main_api = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='
+        api_key = '&interval=1min&apikey=JPMPSPT7R9L3LK45'
         url = main_api + symbol_f + api_key
         json_data = requests.get(url).json()
         mkt_dt = (json_data["Meta Data"]["3. Last Refreshed"])
@@ -83,8 +83,8 @@ class Stock(models.Model):
 
     def current_stock_value(self):
         symbol_f = str(self.symbol)
-        main_api = 'https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol='
-        api_key = '&apikey=JPMPSPT7R9L3LK45'
+        main_api = 'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol='
+        api_key = '&interval=1min&apikey=JPMPSPT7R9L3LK45'
         url = main_api + symbol_f + api_key
         json_data = requests.get(url).json()
         mkt_dt = (json_data["Meta Data"]["3. Last Refreshed"])
